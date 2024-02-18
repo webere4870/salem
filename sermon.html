@@ -161,10 +161,10 @@
       <div class="container" style="padding-top: 70px;">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6">
-
+            <a href="sermons.html" class="underline text-muted text-center mb-5" style="text-align: center; width: 100% !important; justify-content: center; align-items: center; display: flex;">Back to catalog</a>
             <!-- Heading -->
-            <h2 class="text-center mb-4">
-              Sermon Playlists
+            <h2 class="text-center mb-4" id="playlistTitle">
+              
             </h2>
 
             <!-- Subheading -->
@@ -728,32 +728,36 @@
    */
   var playlists = null
   function loadClient() {
+    const urlParams = new URLSearchParams(window.location.search);
+    var playlistId = urlParams.get("playlist");
+    var name = urlParams.get("name")
+    document.querySelector("#playlistTitle").textContent = name
+    console.log("playlist id : " + playlistId)
     gapi.client.setApiKey("AIzaSyBJg0GZgNztvfKMOnbfLUP1SE6z8zx7w8k");
     return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
         .then(()=>{
-          return gapi.client.youtube.playlists.list({
+          return gapi.client.youtube.playlistItems.list({
       "part": [
         "id",
-        "snippet",
-        "contentDetails"
+        "snippet"
       ],
-      "channelId": "UCneKpMu9SFGlt2usTdAI75A",
+      "playlistId": playlistId,
       "maxResults": 50
     })
         .then(function(response) {
           var json = JSON.parse(response.body)
-          console.log(json)
+          console.log("Playlist videos", json)
           var playlistRow = document.querySelector("#playlistRow")
             json.items.forEach((playlist)=>
             {
               var newNode = document.createElement("div")
               newNode.className = "col-md-4 playlist"
               newNode.innerHTML = `<!-- Item -->
-            <a href="sermon.html?playlist=${playlist.id}&name=${playlist.snippet.title}" class="card border-0 mb-3 mb-md-0">
+            <div class="card border-0 mb-3 mb-md-0">
           
               <!-- Image -->
               <div class="card-img-top">
-                <img src="${playlist.snippet.thumbnails.high.url}" alt="Carousel header" class="img-fluid">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/${playlist.snippet.resourceId.videoId}" frameborder="0" allowfullscreen=""></iframe>
               </div>
 
               <!-- Body -->
@@ -768,7 +772,7 @@
 
               </div>
 
-            </a> <!-- / .card -->
+            </div> <!-- / .card -->
 `
             playlistRow.append(newNode)
             })
