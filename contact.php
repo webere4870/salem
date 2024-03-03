@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
@@ -28,6 +35,9 @@
     <link rel="stylesheet" href="assets/css/theme.min.css">
 
     <title>Incline | Contact</title>
+    <style>
+      #map { height: 250px; }
+    </style>
   </head>
   <body>
 
@@ -88,6 +98,7 @@
 
           <!-- Links -->
           <!-- Links -->
+          <!-- Links -->
           <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
               <a href="index.html" class="nav-link">
@@ -99,14 +110,23 @@
                 About Us
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarComponents">
+                <a class="dropdown-item " href="gospel.html">
+                  Going to heaven?
+                </a>
                 <a class="dropdown-item " href="doctrine.html">
-                  Doctrine
+                  Doctrinal Statement
                 </a>
                 <a class="dropdown-item " href="staff.html">
-                  Staff
+                  Leadership
                 </a>
                 <a class="dropdown-item " href="ministries.html">
                   Ministries
+                </a>
+                <a class="dropdown-item " href="service.html">
+                  Service Times
+                </a>
+                <a class="dropdown-item " href="contact.php">
+                  Contact Us
                 </a>
               </div>
             </li>
@@ -118,6 +138,16 @@
             <li class="nav-item ">
               <a href="https://buy.stripe.com/dR6dS3eWz0Exd9K8wy" target="_blank" class="nav-link">
                 Give
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="./contact.php" class="nav-link">
+                Contact
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="./new.html" class="nav-link">
+                I'm New
               </a>
             </li>
             <li class="nav-item-divider">
@@ -171,14 +201,23 @@
 
       <!-- Content -->
       <div class="container">
+        <?php
+        if($_POST['name'])
+        {
+            echo("<div class=\"row\">
+            <h1 style=\"width: 100%; text-align: center;\">We will be in touch!</h1>
+         </div>");
+        }
+        ?>
+        
         <div class="row">
           <div class="col-12">
 
             <!-- Map -->
-            <div class="map">
+            <!-- <div class="map">
               <div class="map-container" data-markers="[[40.7127753,-74.0059728]]" data-zoom="12"></div>
-            </div>
-            
+            </div> -->
+            <div id="map"></div>
           </div>
         </div> <!-- / .row -->
       </div> <!-- / .container -->
@@ -213,14 +252,14 @@
             </p>
 
             <!-- Form -->
-            <form>
+            <form method="post" action="./contact.php">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   
                   <!-- Name -->
                   <label>Full name</label>
                   <div class="input-group">
-                    <input type="text" class="form-control order-1" name="contact-name">
+                    <input type="text" class="form-control order-1" name="name">
                     <div class="input-group-append order-0">
                       <div class="input-group-text">
                         <svg class="input-group-icon icon-offset icon icon-person" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -238,7 +277,7 @@
                   <!-- Email -->
                   <label>Email address</label>
                   <div class="input-group">
-                    <input type="email" class="form-control order-1" name="contact-email">
+                    <input type="email" class="form-control order-1" name="email">
                     <div class="input-group-append order-0">
                       <div class="input-group-text">
                         <svg class="input-group-icon icon-offset icon icon-envelope" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -257,7 +296,7 @@
                   
                   <!-- Message -->
                   <label>Your comments</label>
-                  <textarea class="form-control" name="contact-message" rows="7"></textarea>
+                  <textarea class="form-control" name="message" rows="7"></textarea>
                   
                 </div>
               </div> <!-- / .form-row -->
@@ -478,6 +517,27 @@
 
     <!-- Theme JS -->
     <script src="assets/js/theme.min.js"></script>
-
+      <script>
+        var map = L.map('map').setView([41.096729, -83.592998], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+var marker = L.marker([41.096729, -83.592998]).addTo(map);
+marker.bindPopup("4699 Co Rd 236, Findlay, OH 45840").openPopup();
+      </script>
+      <?php
+ini_set( 'display_errors', 1 );
+error_reporting( E_ALL );
+$from = "no-reply@snbchurch.org";
+$to = "webere1@findlay.edu";
+$subject = "Website Contact Request";
+$message = "Name: " . htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8') . "\nEmail: " . htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') . "\nMessage: " . htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+$headers = "From:" . "no-reply@snbchurch.org";
+if($_POST["email"])
+{
+    mail($to,$subject,$message, $headers);
+}
+?>
   </body>
 </html>
