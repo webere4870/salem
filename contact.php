@@ -122,7 +122,7 @@
                 <a class="dropdown-item " href="ministries.html">
                   Ministries
                 </a>
-                <a class="dropdown-item " href="service.html">
+                <a class="dropdown-item " href="contact.php">
                   Service Times
                 </a>
                 <a class="dropdown-item " href="contact.php">
@@ -532,8 +532,12 @@ error_reporting( E_ALL );
 $from = "no-reply@snbchurch.org";
 $to = "webere1@findlay.edu";
 $subject = "Website Contact Request";
-$message = "Name: " . htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8') . "\nEmail: " . htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') . "\nMessage: " . htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
 $headers = "From:" . "no-reply@snbchurch.org";
+$message = "";
+if($_POST["email"])
+{
+  $message = "Name: " . htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8') . "\nEmail: " . htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') . "\nMessage: " . htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+}
 if($_POST["email"])
 {
     mail($to,$subject,$message, $headers);
