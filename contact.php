@@ -71,26 +71,18 @@
               </span>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-github"></i> 
+              <a href="https://www.youtube.com/@SalemNewBeginnings" class="nav-link">
+                <i class="fab fa-youtube"></i> 
                 <span class="d-xl-none ml-2">
-                  Github
+                  youtube
                 </span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-twitter"></i> 
+              <a href="https://www.facebook.com/profile.php?id=100095668415591" class="nav-link">
+                <i class="fab fa-facebook"></i> 
                 <span class="d-xl-none ml-2">
-                  Twitter
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-instagram"></i> 
-                <span class="d-xl-none ml-2">
-                  Instagram
+                  facebook
                 </span>
               </a>
             </li>
@@ -476,18 +468,13 @@
             <!-- Social links -->
             <ul class="list-inline list-unstyled text-md-right">
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-github"></i>
+                <a href="https://www.youtube.com/@SalemNewBeginnings">
+                  <i class="fab fa-youtube"></i>
                 </a>
               </li>
               <li class="list-inline-item ml-3">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item ml-3">
-                <a href="#">
-                  <i class="fab fa-instagram"></i>
+                <a href="https://www.facebook.com/profile.php?id=100095668415591">
+                  <i class="fab fa-facebook"></i>
                 </a>
               </li>
             </ul>
@@ -527,8 +514,7 @@ var marker = L.marker([41.096729, -83.592998]).addTo(map);
 marker.bindPopup("4699 Co Rd 236, Findlay, OH 45840").openPopup();
       </script>
       <?php
-ini_set( 'display_errors', 1 );
-error_reporting( E_ALL );
+
 $from = "no-reply@snbchurch.org";
 $to = "webere1@findlay.edu";
 $subject = "Website Contact Request";
