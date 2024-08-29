@@ -44,119 +44,107 @@
     <!-- NAVBAR
     ================================================= -->
     <nav class="navbar navbar-expand-xl navbar-light  fixed-top">
-      <div class="container">
+    <div class="container">
 
-        <!-- Brand -->
-        <a class="navbar-brand" href="index.html">
-          <svg class="navbar-brand-svg" viewBox="0 0 245 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <path d="M0 0 L 20 10 L 0 20 Z" class="navbar-brand-svg-i" fill="currentColor"></path>
-            <path d="M0 30 L 20 40 L 0 50 Z M20 45 L 0 55 L 20 65 Z M0 60 L 20 70 L 0 80 Z" fill="currentColor"></path>
-            <text x="40" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" letter-spacing="-.025em" fill="currentColor">incline.</text>
-          </svg>
+<!-- Brand -->
+<a class="navbar-brand" href="index.html">
+  <svg class="navbar-brand-svg" viewBox="0 0 245 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M0 0 L 20 10 L 0 20 Z" class="navbar-brand-svg-i" fill="currentColor"></path>
+    <path d="M0 30 L 20 40 L 0 50 Z M20 45 L 0 55 L 20 65 Z M0 60 L 20 70 L 0 80 Z" fill="currentColor"></path>
+    <text x="40" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" letter-spacing="-.025em" fill="currentColor">incline.</text>
+  </svg>
+</a>
+
+<!-- Toggler -->
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<!-- Collapse -->
+<div class="collapse navbar-collapse" id="navbarCollapse">
+
+  <!-- Social -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item-divider">
+      <span class="nav-link">
+        <span></span>
+      </span>
+    </li>
+    <li class="nav-item">
+      <a href="https://www.youtube.com/@SalemNewBeginnings" class="nav-link">
+        <i class="fab fa-youtube"></i> 
+        <span class="d-xl-none ml-2">
+          youtube
+        </span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="https://www.facebook.com/profile.php?id=100095668415591" class="nav-link">
+        <i class="fab fa-facebook"></i> 
+        <span class="d-xl-none ml-2">
+          facebook
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Links -->
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item ">
+      <a href="index.html" class="nav-link">
+        Home
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarComponents" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        About Us
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarComponents">
+        <a class="dropdown-item " href="gospel.html">
+          Going to heaven?
         </a>
-  
-        <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <a class="dropdown-item " href="doctrine.html">
+          Doctrinal Statement
+        </a>
+        <a class="dropdown-item " href="staff.html">
+          Leadership
+        </a>
+        <a class="dropdown-item " href="ministries.html">
+          Ministries
+        </a>
+        <a class="dropdown-item " href="resources.html">
+          Resources
+        </a>
+        <a class="dropdown-item " href="contact.php">
+          Contact Us
+        </a>
+      </div>
+    </li>
+    <li class="nav-item ">
+      <a href="sermons.html" class="nav-link">
+        Sermons
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a href="https://buy.stripe.com/dR6dS3eWz0Exd9K8wy" target="_blank" class="nav-link">
+        Give
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a href="./contact.php" class="nav-link">
+        Contact
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a href="./new.html" class="nav-link">
+        I'm New
+      </a>
+    </li>
+  </ul>
 
-          <!-- Social -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item-divider">
-              <span class="nav-link">
-                <span></span>
-              </span>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.youtube.com/@SalemNewBeginnings" class="nav-link">
-                <i class="fab fa-youtube"></i> 
-                <span class="d-xl-none ml-2">
-                  youtube
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.facebook.com/profile.php?id=100095668415591" class="nav-link">
-                <i class="fab fa-facebook"></i> 
-                <span class="d-xl-none ml-2">
-                  facebook
-                </span>
-              </a>
-            </li>
-          </ul>
+</div> <!-- / .navbar-collapse -->
 
-          <!-- Links -->
-          <!-- Links -->
-          <!-- Links -->
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-              <a href="index.html" class="nav-link">
-                Home
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarComponents" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                About Us
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarComponents">
-                <a class="dropdown-item " href="gospel.html">
-                  Going to heaven?
-                </a>
-                <a class="dropdown-item " href="doctrine.html">
-                  Doctrinal Statement
-                </a>
-                <a class="dropdown-item " href="staff.html">
-                  Leadership
-                </a>
-                <a class="dropdown-item " href="ministries.html">
-                  Ministries
-                </a>
-                <a class="dropdown-item " href="contact.php">
-                  Service Times
-                </a>
-                <a class="dropdown-item " href="contact.php">
-                  Contact Us
-                </a>
-              </div>
-            </li>
-            <li class="nav-item ">
-              <a href="sermons.html" class="nav-link">
-                Sermons
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a href="https://buy.stripe.com/dR6dS3eWz0Exd9K8wy" target="_blank" class="nav-link">
-                Give
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a href="./contact.php" class="nav-link">
-                Contact
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a href="./new.html" class="nav-link">
-                I'm New
-              </a>
-            </li>
-            <li class="nav-item-divider">
-              <span class="nav-link">
-                <span></span>
-              </span>
-            </li>
-            <li class="nav-item">
-              <a href="./live.html" class="nav-link">
-                Watch Live
-              </a>
-            </li>
-          </ul>
-
-        </div> <!-- / .navbar-collapse -->
-  
-      </div> <!-- / .container -->    
+</div> <!-- / .container -->  
     </nav>
 
     <!-- BREADCRUMB
@@ -338,10 +326,7 @@
             </h3>
 
             <!-- Subheading -->
-            <p class="text-muted mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt nam voluptatum facilis, atque officiis possimus totam placeat maiores at tempore nulla corporis rem aliquid iusto ab, distinctio, nostrum cumque asperiores!
-            </p>
-            
+
             <!-- Content -->
             <div class="row">
               <div class="col-md-6 col-lg-5">
@@ -353,21 +338,8 @@
                 
                 <!-- Address -->
                 <p class="text-muted">
-                  1234 Altschul, New York, NY 10027-0000
+                4699 Co Rd 236, Findlay, OH 45840
                 </p>
-
-                <!-- Heading -->
-                <h5>
-                  Email:
-                </h5>
-                
-                <!-- Address -->
-                <p class="text-muted">
-                  <a href="mailto:admin@domain.com">
-                    admin@domain.com
-                  </a>
-                </p>
-
               </div>
               <div class="col-md-6 col-lg-5">
 
@@ -378,21 +350,9 @@
                 
                 <!-- Phone -->
                 <p class="text-muted">
-                  <a href="tel:1234567890">
-                    132-465-78-90
-                  </a>
-                </p>
-
-                <!-- Heading -->
-                <h5>
-                  Skype:
-                </h5>
-                
-                <!-- Phone -->
-                <p class="text-muted">
-                  <a href="tel:1234567890">
-                    simpleqode.skype
-                  </a>
+                <a href="tel:419-423-9751">
+                  (419) 423-9751
+                </a> 
                 </p>
 
               </div>
@@ -429,26 +389,26 @@
             </p>
         
           </div>
+          <div class="col-md align-items-center">
+            <h2 class="text-white">Find Us</h2>
+            <p class="text-white text-align-center">4699 Co Rd 236, Findlay, OH 45840</p>
+          </div>
+          <div class="col-md align-items-center">
+            <h2 class="text-white">Hours</h2>
+            <p class="text-white text-align-center">9:30-11:30 A.M. Every Sunday</p>
+          </div>
           <div class="col-md">
-        
+            <h2 class="text-white">Contact Us</h2>
             <!-- Links -->
-            <ul class="list-unstyled list-inline text-md-right">
-              <li class="list-inline-item mr-2">
+
+                <a href="tel:419-423-9751" class="text-white">
+                  (419) 423-9751
+                </a>   
+                &nbsp;             
                 <a href="#" class="text-white">
-                  Terms and conditions
+                  Contact Form
                 </a>
-              </li>
-              <li class="list-inline-item mr-2">
-                <a href="#" class="text-white">
-                  Privacy policy
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">
-                  Contact us
-                </a>
-              </li>
-            </ul>
+
 
           </div>
         </div> <!-- / .row -->
@@ -458,7 +418,7 @@
             <!-- Copyright -->
             <p class="text-white text-muted">
               <small>
-                &copy; Copyright <span class="current-year"></span> Simpleqode. All rights reserved.
+                &copy; Copyright <span class="current-year"></span> SNB Church. All rights reserved.
               </small>
             </p>
 
@@ -481,6 +441,7 @@
 
           </div>
         </div> <!-- / .row -->
+        
       </div> <!-- / .container -->
 
     </footer>
