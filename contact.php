@@ -4,22 +4,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Favicons -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-      <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
- integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
- crossorigin=""></script>
- <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
-    <link rel="manifest" href="assets/ico/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/salemico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/salemico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/salemico/favicon-16x16.png">
+    <link rel="manifest" href="assets/salemico/site.webmanifest">
     <link rel="mask-icon" href="assets/ico/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="assets/salemico/favicon.ico">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="assets/ico/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
@@ -31,11 +23,31 @@
     <link rel="stylesheet" href="assets/libs/highlightjs/styles/codepen-embed.css">
     <link rel="stylesheet" href="assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="assets/libs/incline-icons/style.min.css">
-
+    <!-- Favicons -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>
+ <link rel="stylesheet" href="assets/css/custom.css">
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/css/theme.min.css">
 
-    <title>Incline | Contact</title>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Salem New Beginnings Church | Evangelical Free Church in Findlay, Ohio">
+    <meta property="og:description" content="Join Salem New Beginnings Church in Findlay, Ohio. Experience meaningful worship and community with us.">
+    <meta property="og:image" content="assets/img/salemlogo.png">
+    <meta property="og:url" content="https://snbchurch.org">
+    <meta property="og:type" content="website">
+
+    <!-- Basic SEO Meta Tags -->
+    <title>Salem New Beginnings Church | Contact</title>
+    <meta name="description" content="Welcome to Salem New Beginnings Church in Findlay, Ohio. We are based out of Northwest Ohio. Join our Evangelical Free Church community for worship, fellowship, and spiritual growth.">
+    <meta name="keywords" content="Salem New Beginnings Church, Evangelical Free Church, Findlay Ohio, Northwest Ohio, Church services Findlay, Christian worship Findlay, family church Findlay, Bible teaching Findlay, Bible Findlay, Bible Study, Best Church Findlay Ohio">
+    <meta name="author" content="Salem New Beginnings Church">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       #map { height: 250px; }
     </style>
@@ -49,7 +61,7 @@
 
 <!-- Brand -->
 <a class="navbar-brand" href="index.html">
-  <img class="salemlogo" src="assets/img/salemlogo.png"/>
+  <img class="salemlogo" alt="Salem Logo" src="assets/img/salemlogo.png"/>
 </a>
 
 <!-- Toggler -->
@@ -66,22 +78,6 @@
       <span class="nav-link">
         <span></span>
       </span>
-    </li>
-    <li class="nav-item">
-      <a href="https://www.youtube.com/@SalemNewBeginnings" class="nav-link">
-        <i class="fab fa-youtube"></i> 
-        <span class="d-xl-none ml-2">
-          youtube
-        </span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="https://www.facebook.com/people/Salem-New-Beginnings-Church/61559417400653/" class="nav-link">
-        <i class="fab fa-facebook"></i> 
-        <span class="d-xl-none ml-2">
-          facebook
-        </span>
-      </a>
     </li>
   </ul>
 
