@@ -40,6 +40,10 @@
     <meta name="keywords" content="Salem New Beginnings Church, Evangelical Free Church, Findlay Ohio, Northwest Ohio, Church services Findlay, Christian worship Findlay, family church Findlay, Bible teaching Findlay, Bible Findlay, Bible Study, Best Church Findlay Ohio">
     <meta name="author" content="Salem New Beginnings Church">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="https://cdn.jsdelivr.net/npm/@azure/storage-blob@12.4.0/dist/azure-storage-blob.min.js"></script>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+
   </head>
   <body>
 
@@ -170,9 +174,84 @@
             </p>
 
           </div>
+          
         </div> <!-- / .row -->
-        <div class="row" id="playlistRow">
+        <div style="margin-bottom: 50px;" class="row justify-content-center">
+          <select id="BookOfTheBible" style="overflow-y: scroll;" class="col-8 custom-select">
+            <option value="" selected>Books of the Bible</option>
+            <option value="genesis">Genesis</option>
+            <option value="exodus">Exodus</option>
+            <option value="leviticus">Leviticus</option>
+            <option value="numbers">Numbers</option>
+            <option value="deuteronomy">Deuteronomy</option>
+            <option value="joshua">Joshua</option>
+            <option value="judges">Judges</option>
+            <option value="ruth">Ruth</option>
+            <option value="1-samuel">1 Samuel</option>
+            <option value="2-samuel">2 Samuel</option>
+            <option value="1-kings">1 Kings</option>
+            <option value="2-kings">2 Kings</option>
+            <option value="1-chronicles">1 Chronicles</option>
+            <option value="2-chronicles">2 Chronicles</option>
+            <option value="ezra">Ezra</option>
+            <option value="nehemiah">Nehemiah</option>
+            <option value="esther">Esther</option>
+            <option value="job">Job</option>
+            <option value="psalms">Psalms</option>
+            <option value="proverbs">Proverbs</option>
+            <option value="ecclesiastes">Ecclesiastes</option>
+            <option value="song-of-solomon">Song of Solomon</option>
+            <option value="isaiah">Isaiah</option>
+            <option value="jeremiah">Jeremiah</option>
+            <option value="lamentations">Lamentations</option>
+            <option value="ezekiel">Ezekiel</option>
+            <option value="daniel">Daniel</option>
+            <option value="hosea">Hosea</option>
+            <option value="joel">Joel</option>
+            <option value="amos">Amos</option>
+            <option value="obadiah">Obadiah</option>
+            <option value="jonah">Jonah</option>
+            <option value="micah">Micah</option>
+            <option value="nahum">Nahum</option>
+            <option value="habakkuk">Habakkuk</option>
+            <option value="zephaniah">Zephaniah</option>
+            <option value="haggai">Haggai</option>
+            <option value="zechariah">Zechariah</option>
+            <option value="malachi">Malachi</option>
+            <option value="matthew">Matthew</option>
+            <option value="mark">Mark</option>
+            <option value="luke">Luke</option>
+            <option value="john">John</option>
+            <option value="acts">Acts</option>
+            <option value="romans">Romans</option>
+            <option value="1-corinthians">1 Corinthians</option>
+            <option value="2-corinthians">2 Corinthians</option>
+            <option value="galatians">Galatians</option>
+            <option value="ephesians">Ephesians</option>
+            <option value="philippians">Philippians</option>
+            <option value="colossians">Colossians</option>
+            <option value="1-thessalonians">1 Thessalonians</option>
+            <option value="2-thessalonians">2 Thessalonians</option>
+            <option value="1-timothy">1 Timothy</option>
+            <option value="2-timothy">2 Timothy</option>
+            <option value="titus">Titus</option>
+            <option value="philemon">Philemon</option>
+            <option value="hebrews">Hebrews</option>
+            <option value="james">James</option>
+            <option value="1-peter">1 Peter</option>
+            <option value="2-peter">2 Peter</option>
+            <option value="1-john">1 John</option>
+            <option value="2-john">2 John</option>
+            <option value="3-john">3 John</option>
+            <option value="jude">Jude</option>
+            <option value="revelation">Revelation</option>
+
+          </select>
+        </div>
+        <div id="catalogRow" class="row mb-4">
+         
         </div> <!-- / .row -->
+
       </div> <!-- / .container -->
 
     </section>
@@ -352,14 +431,124 @@
   }
   // Make sure the client is loaded before calling this method.
 
-  gapi.load("client");
+ // gapi.load("client");
+</script>
+<script >
+
+    $("#BookOfTheBible").change(async (evt)=>
+    {
+      $(".mysermon").remove()
+      var book = $(evt.target).val()
+      if(book)
+      {
+        await GetBlobs(book)
+      }
+      
+    })
+
+     // Your storage account URL and SAS token (for authentication)
+     async function GetBlobs(book)
+     {
+        const storageAccountUrl = "https://snbchurch.blob.core.windows.net";
+        const containerName = book;
+        // Construct the full URL to the container's list blobs endpoint
+        const url = `${storageAccountUrl}/${containerName}?restype=container&comp=list&include=metadata`;
+        
+
+        // Make the HTTP request to Azure Blob Storage
+        const response = await fetch(url, { method: 'GET', headers: {
+          "x-ms-version": "2021-02-12"
+        } });
+
+
+        // Check if 200 response
+        if (!response.ok) {
+            console.error('Error fetching blob list:', response.statusText);
+            return;
+        }
+
+
+        // Parse the return XML data back
+        // from Azure blob storage
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+        const blobListElement = document.getElementById("blob-list");
+
+
+        // Parse the XML response and list blob names
+        const blobs = xmlDoc.getElementsByTagName('Blob');
+        for (let i = 0; i < blobs.length; i++) 
+        {
+          try
+          {
+            // The azure blob storage api returns
+            // XML data. We can parse the XML and query it
+            // just like we do with an HTML tree
+            console.log(blobs[i])
+            let name = blobs[i].getElementsByTagName("Name")[0].innerHTML;
+            let title = blobs[i].getElementsByTagName("title")[0].innerHTML;
+            let chapter = blobs[i].getElementsByTagName("chapter")[0].innerHTML;
+            let verse = blobs[i].getElementsByTagName("verse")[0].innerHTML;
+            let youtube = blobs[i].getElementsByTagName("youtube")[0].innerHTML;
+            if(name.includes(".jpg"))
+            {
+              continue
+            }
+          
+          
+            // Use the XML data to build a small card element
+            // that we copied from our bootstrap template.
+            // We need to use the Title, Chapter, Verse, and YT link
+            var create = blobs[i].getElementsByTagName("Last-Modified")[0].innerHTML
+            var createDate = new Date(create)
+            console.log(name, createDate.toLocaleDateString())
+            var sermon = document.createElement("div")
+            sermon.classList = 'col-md-4 mysermon'
+            sermon.innerHTML = 
+            `
+            <!-- Card -->
+            <div class="card card-sm border-0 mb-3 mb-md-0">
+              
+              <!-- Image -->
+              <video preload="none" poster="https://snbchurch.blob.core.windows.net/acts/background.jpg" height="100%" width="100%" controls>
+                <source src="https://snbchurch.blob.core.windows.net/acts/20240811_235910000_iOS.mp4" type="video/mp4">
+              </video>
+
+              <!-- Body -->
+              <div class="card-body">
+                
+                <!-- Title -->
+                <h4 class="card-title">
+                  ${title}, <br/> <small class="text-muted">${book.toUpperCase() + ' ' + chapter + ':' + verse}</small>
+                </h4>
+
+                <!-- Text -->
+                <ul class="card-text list-inline list-unstyled">
+                  <li class="list-inline-item">
+                    <a href="${youtube}" target="_blank">
+                      <i style="font-size: 1.5rem" class="fab fa-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
+            </div> <!-- / .card -->`
+            document.querySelector("#catalogRow").append(sermon)
+          }
+          catch(e)
+          {
+            console.log("Err", e)
+          }
+        }
+     }
 </script>
 <script>
   window.onload = function() {
  loadClient()
   };
 </script>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
 
     <!-- Plugins JS -->

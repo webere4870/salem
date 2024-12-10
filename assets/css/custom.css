@@ -9,3 +9,27 @@
 html{
     font-size: 120%;
 }
+
+
+.snbsermon{
+    width: 80% !important;
+    
+}
+
+.snbsermon *{
+    margin:unset;
+    padding: unset;
+}
+
+.snbsermon i{
+    color: var(--yellow);
+}
+
+.snbsermon:hover{
+    cursor: pointer;
+}
+
+
+select option{
+    text-align: center;
+}
