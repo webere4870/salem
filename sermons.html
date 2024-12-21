@@ -179,73 +179,13 @@
         <div style="margin-bottom: 50px;" class="row justify-content-center">
           <select id="BookOfTheBible" style="overflow-y: scroll;" class="col-8 custom-select">
             <option value="" selected>Books of the Bible</option>
-            <option value="genesis">Genesis</option>
-            <option value="exodus">Exodus</option>
-            <option value="leviticus">Leviticus</option>
-            <option value="numbers">Numbers</option>
-            <option value="deuteronomy">Deuteronomy</option>
-            <option value="joshua">Joshua</option>
-            <option value="judges">Judges</option>
-            <option value="ruth">Ruth</option>
-            <option value="1-samuel">1 Samuel</option>
-            <option value="2-samuel">2 Samuel</option>
-            <option value="1-kings">1 Kings</option>
-            <option value="2-kings">2 Kings</option>
-            <option value="1-chronicles">1 Chronicles</option>
-            <option value="2-chronicles">2 Chronicles</option>
-            <option value="ezra">Ezra</option>
-            <option value="nehemiah">Nehemiah</option>
-            <option value="esther">Esther</option>
-            <option value="job">Job</option>
-            <option value="psalms">Psalms</option>
-            <option value="proverbs">Proverbs</option>
-            <option value="ecclesiastes">Ecclesiastes</option>
-            <option value="song-of-solomon">Song of Solomon</option>
-            <option value="isaiah">Isaiah</option>
-            <option value="jeremiah">Jeremiah</option>
-            <option value="lamentations">Lamentations</option>
-            <option value="ezekiel">Ezekiel</option>
-            <option value="daniel">Daniel</option>
-            <option value="hosea">Hosea</option>
-            <option value="joel">Joel</option>
-            <option value="amos">Amos</option>
-            <option value="obadiah">Obadiah</option>
-            <option value="jonah">Jonah</option>
-            <option value="micah">Micah</option>
-            <option value="nahum">Nahum</option>
-            <option value="habakkuk">Habakkuk</option>
-            <option value="zephaniah">Zephaniah</option>
-            <option value="haggai">Haggai</option>
-            <option value="zechariah">Zechariah</option>
-            <option value="malachi">Malachi</option>
             <option value="matthew">Matthew</option>
-            <option value="mark">Mark</option>
             <option value="luke">Luke</option>
-            <option value="john">John</option>
-            <option value="acts">Acts</option>
             <option value="romans">Romans</option>
-            <option value="1-corinthians">1 Corinthians</option>
-            <option value="2-corinthians">2 Corinthians</option>
-            <option value="galatians">Galatians</option>
             <option value="ephesians">Ephesians</option>
             <option value="philippians">Philippians</option>
             <option value="colossians">Colossians</option>
-            <option value="1-thessalonians">1 Thessalonians</option>
-            <option value="2-thessalonians">2 Thessalonians</option>
-            <option value="1-timothy">1 Timothy</option>
-            <option value="2-timothy">2 Timothy</option>
-            <option value="titus">Titus</option>
             <option value="philemon">Philemon</option>
-            <option value="hebrews">Hebrews</option>
-            <option value="james">James</option>
-            <option value="1-peter">1 Peter</option>
-            <option value="2-peter">2 Peter</option>
-            <option value="1-john">1 John</option>
-            <option value="2-john">2 John</option>
-            <option value="3-john">3 John</option>
-            <option value="jude">Jude</option>
-            <option value="revelation">Revelation</option>
-
           </select>
         </div>
         <div id="catalogRow" class="row mb-4">
@@ -258,28 +198,7 @@
 
     <!-- QUOTE
     ================================================== -->
-    <section class="section">
 
-      <!-- Content -->
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-9">
-        
-            <!-- Quote -->
-            <div class="quote">
-              <blockquote class="quote-blockquote">
-                <p class="quote-blockquote-content">
-                  'Be diligent to present yourself approved to God as a workman who does not need to be ashamed, accurately handling the word of truth. '
-                  <br/> &mdash; 2 Timothy 2:15
-                </p>
-              </blockquote>
-            </div> <!-- / .quote -->
-        
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-
-    </section>
 
     <!-- FOOTER
     ================================================== -->
@@ -487,6 +406,7 @@
             // just like we do with an HTML tree
             console.log(blobs[i])
             let name = blobs[i].getElementsByTagName("Name")[0].innerHTML;
+            let contentType = blobs[i].getElementsByTagName("Content-Type")[0].innerHTML;
             let title = blobs[i].getElementsByTagName("title")[0].innerHTML;
             let chapter = blobs[i].getElementsByTagName("chapter")[0].innerHTML;
             let verse = blobs[i].getElementsByTagName("verse")[0].innerHTML;
@@ -511,8 +431,8 @@
             <div class="card card-sm border-0 mb-3 mb-md-0">
               
               <!-- Image -->
-              <video preload="none" poster="https://snbchurch.blob.core.windows.net/acts/background.jpg" height="100%" width="100%" controls>
-                <source src="https://snbchurch.blob.core.windows.net/acts/20240811_235910000_iOS.mp4" type="video/mp4">
+              <video preload="none" poster="https://snbchurch.blob.core.windows.net/${book}/background.jpg" height="100%" width="100%" controls>
+                <source src="https://snbchurch.blob.core.windows.net/${book}/${name}" type="${contentType}">
               </video>
 
               <!-- Body -->
