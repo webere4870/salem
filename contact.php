@@ -97,7 +97,13 @@
           Going to heaven?
         </a>
         <a class="dropdown-item " href="doctrine.html">
-          Doctrinal Statement
+          What We Believe
+        </a>
+        <a class="dropdown-item " href="values.html">
+          Social Values
+        </a>
+        <a class="dropdown-item " href="distinctives.html">
+          Distinctives
         </a>
         <a class="dropdown-item " href="staff.html">
           Leadership
