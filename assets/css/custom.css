@@ -33,3 +33,17 @@ html{
 select option{
     text-align: center;
 }
+
+
+.hover-text-yellow:hover
+{
+    color:var(--yellow);
+}
+
+
+@media (max-width: 1200px) {
+    .hide-on-small {
+      display: none;
+    }
+  }
+  
